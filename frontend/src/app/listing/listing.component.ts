@@ -41,11 +41,10 @@ export class ListingComponent {
 
   ngOnInit(): void {
     this.loaded = false;
-    this.criteria = this.searchService.currentSearchCriteria;
     
     this.listingService.getListings().subscribe((listings: Listing[]) => {
       this.listings = listings;
-      console.log(this.listings);
+      // console.log(this.listings);
       this.loaded = true;
     })
 
@@ -53,6 +52,11 @@ export class ListingComponent {
       this.listingType = String(params.get("listingType"))|| null;
       this.propertyType = String(params.get("propertyType"))|| null;
       // console.log(this.propertyType);
+     })
+
+     this.searchService.currentSearchCriteria.subscribe(criteria => {
+      this.criteria = criteria;
+      // console.log(this.minValue, this.maxValue);
      })
   }
 

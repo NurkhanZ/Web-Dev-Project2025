@@ -22,6 +22,7 @@ export class SearchComponent {
     'Дом': 'house',
     'Квартиру': 'apartment'
   }
+  
 
   constructor(private route: Router,
     private criteria: SearchService
@@ -38,6 +39,7 @@ export class SearchComponent {
     
     this.criteria.changeSearchCriteria(searchCriteria);
     console.log(this.values[this.selectedAction], this.values[this.selectedType])
+    // console.log(searchCriteria.maxValue)
     this.route.navigate(['/', this.values[this.selectedAction], this.values[this.selectedType]]);
   }
 
