@@ -3,7 +3,7 @@
 
 Project name :           <br />
 Project team members :    <br />
-    Nurkhan Zhamalbekov -><br /> 
-    Alisher Baudinov    -><br />
-    Almat Temirkozha    -><br />
-Project descriptiton: ?
+    Nurkhan Zhamalbekov -> Backend<br /> 
+    Alisher Baudinov    -> Frontend<br />
+    Almat Temirkozha    -> Frontend/Backend<br />
+Project descriptiton: Platform for people to sale/rent houses or apartments.
