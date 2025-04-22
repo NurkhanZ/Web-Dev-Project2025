@@ -1,0 +1,160 @@
+<div class="container">
+  <!-- <nav class="navigation">
+    <div><a [routerLink]="['/main']"><span>Крыша</span></a></div>
+    <div> / </div>
+    <div><a [routerLink]="['/sales/flats']"><span>Продажа квартир</span></a></div>
+  </nav> -->
+
+  <div class="container-item">
+    <div class="title">
+      <h3>{{ flatSale.property.rooms_count }} - комнатный {{ flatSale.property.type }}, {{ flatSale.property.area }} м<sup>2</sup> за {{ flatSale.property.price }} ₸.</h3>
+      <div class="favorite">
+         <button (click)="addFavorite()" type="button">В избранном</button>
+      </div>
+    </div>
+  </div>
+  <div class="all">
+    <div class="left">
+      <div class="price">
+      <p> от {{flatSale.property.price }} тг </p>
+      </div>
+      <div class="shortly">
+        <div class="common">
+          <h4>Город\район</h4>
+          <div class="button_border"></div>
+          <h5>{{flatSale.property.city}}</h5>
+        </div>
+        <!-- <div class="common">
+          <h4>Тип дома</h4>
+          <div class="button_border"></div>
+          <h5>{{flatSale.type_building}}</h5>
+        </div> -->
+        <div class="common">
+          <h4>Площадь, (м<sup>2</sup>)</h4>
+          <div class="button_border"></div>
+          <h5>{{flatSale.property.area}} (м<sup>2</sup>)</h5>
+        </div>
+        <div class="common">
+          <h4>Адресс</h4>
+          <div class="button_border"></div>
+          <h5>{{flatSale.property.address  }}</h5>
+        </div>
+        <!-- <div class="common">
+          <h4>Номер квартиры (этаж)</h4>
+          <div class="button_border"></div>
+          <h5>{{flatSale.number_flat}} ({{flatSale.floor}})</h5>
+        </div> -->
+      </div>
+
+      <div class="contact">
+        <h3>Контакты </h3>
+        <div class="info">
+          <h5> Имя: {{this.userName}}<span></span></h5>
+          <h5> Номер телефона: {{this.userContact}}<span></span></h5>
+          <button class="call" type="button"> Звонить </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="gallery">
+        <div class="main_photo">
+          <img [src]="flatSale.property.images[0].url" alt="Main Photo" width="800px" height="450px">
+        </div>
+        <div class="small_gallery_list" >
+          <div class="small_gallery_item" *ngFor="let p of flatSale.property.images">
+            <button class="b" type="button"><img class="small_gallery_image" [src]="p.url" alt="Photo"></button>
+          </div>
+        </div>
+      </div>
+
+    <!--Description-->
+    <div class="offer_description">
+      <div class="about"> Подробнее о доме </div>
+        <div class="offer_parameters">
+          <dl>
+            <dt>Покрытие крыши</dt>
+            <dd>Металлочерепица</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+        </div>
+        <div class="about"> Коммуникации </div>
+        <div class="offer_parameters">
+          <dl>
+            <dt>Покрытие крыши</dt>
+            <dd>Металлочерепица</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+        </div>
+
+        <div class="about"> Описание </div>
+        <div class="detail">{{flatSale.property.description}}</div>
+      </div>
+
+      <div class="widget">
+        <div class="related_offers">
+          <h2>Объявления, которые могут быть вам полезны</h2>
+          <div class="related_items" >
+            <div class="related_item" *ngFor="let flat of related_offers">
+              <a [routerLink]="['/', flat.type, flat.property.type, flat.id]">
+              <div class="related_item_photo">
+                <img [src]="flat.property.images[0].url" alt="Photo">
+              </div>
+              <div class="related_item_inner">
+                {{ flat.property.rooms_count }} - комнатный {{ flat.property.type }}, {{ flat.property.area }} м<sup>2</sup> за {{ flat.property.price }} ₸.
+                <div class="related_item_inner-top">
+                      <div class="related_item_price">
+                        {{flat.property.price}} тг.
+                      </div>
+                </div>
+                  </div>
+                  <div class="related_item-inner-botton">
+                    <div class="related_item_city">{{flat.property.city}}</div>
+                  </div>
+                </a>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

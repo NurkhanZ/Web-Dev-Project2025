@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+main {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+.content {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+.container {
+    margin: auto;
+    width: 1000px;
+    min-width: 1000px;
+}
+
+
+.page-my-index .my-index-container {
+    position: relative;
+    font-family: "Open Sans", sans-serif;
+}
+
+.page-my-index .my-index-header {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.h1, h1 {
+    font-size: 24px;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+
+.btn-primary {
+    border-color: #0059b3;
+}
+
+.btn {
+    border-radius: 2px;
+    color: #000;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.btn-blue, .btn-primary {
+    border-bottom: 1px solid #0056a1;
+    background-color: #1a80d9;
+}
+
+
+.btn-primary {
+    padding: 10px 15px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 8px;
+    color: #fff;
+    transition: background-color .2s;
+    text-decoration: none;
+}
+
+
+.btn-primary {
+    font-size: 14px;
+}
+
+
+.page-my-index .my-index-header .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 164px;
+    height: 36px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    border-radius: 8px;
+    border: 0;
+    background: #2a81dd;
+    box-shadow: 0 2px 4px rgba(28,24,25,.1);
+    color: #fff;
+    transition: background .3s ease;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+.page-top {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+}
+
+.filler {
+    width: 30%;
+}
+
+
+.new-ad-btn {
+
+    margin: auto;
+
+}
+
+
+.page-my-index .my-index-container {
+    position: relative;
+}
+
+.my-index-container {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.content {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+}
+
+
+.content a {
+    color: #06c;
+}
+
+.ad-listing-link {
+    color:#000;
+    text-decoration: none;
+    margin-bottom: 3%;
+}
+
+
+
+.ad-list {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: medium;
+    border-bottom: #8a8a8a75 2px solid;
+}
+
+
+.additional {
+    vertical-align: top;
+}
+
+.side-img {
+    width: 10%;
+    /* min-height: 100%; */
+}
+
+.general {
+    vertical-align: top;
+    font-weight: 600;
+}
+
+button {
+    float: left;
+    max-height: 40px;
+    width: 40;
+    padding: 0;
+}
+
+#edit {
+    width: 20px;
+    resize: none;
+}

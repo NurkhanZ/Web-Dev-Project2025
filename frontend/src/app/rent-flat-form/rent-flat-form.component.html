@@ -1,0 +1,196 @@
+<div class="selected"> 
+
+        
+    <br>
+    
+    <div class="sell-nav">
+        Сдать в аренду > {{ this.selectedSubcategory.displayed_name }}
+
+        <button class="change" (click)="resetCategory()">Изменить</button>
+    </div>
+    
+    <br>
+    <br>
+
+
+    <form [formGroup]="applyForm" (submit)="submitForm()">
+        
+        <div class="group">
+            <div class="label-wrapper">
+                <label for="rooms_count">Количество комнат</label>
+            </div>
+            
+            <div class="input-wrapper">
+                <input required type="number" id="rooms_count" formControlName="rooms_count">
+            </div>
+        </div>  
+        
+        
+        <div class="group">
+            <div class="label-wrapper">
+                <label for="rent_duration"> Период аренды </label>
+            </div>
+            
+            <div class="input-wrapper">
+                <select formControlName="rent_duration" id="rent_duration">
+                    <option value="Помесячно"> Помесячно </option>        
+                    <option value="Посуточно"> Посуточно </option>
+                    <option value="По часам"> По часам </option>
+                </select>
+            </div> 
+        </div>
+
+        
+        <div class="group">
+            <div class="label-wrapper">
+                <label for="price">Цена</label>
+            </div>
+            
+            <div class="input-wrapper">
+                <input requiredtype="tel" min="500000" aftertext="tenge" id="price" formControlName="price" placeholder="Например, 12 000 〒">
+                <span> тенге </span>
+            </div>
+        </div>        
+        
+        
+        <div class="group">
+            <div class="label-wrapper">
+                <label for="flat_floor"> Этаж </label>
+            </div>
+            <div class="input-wrapper">
+                <input requiredtype="number" formControlName="flat_floor" id="flat_floor">
+                <span> из </span>
+                <input requiredtype="number" formControlName="flat_floor_total" id="flat_floor_total">
+            </div>
+        </div>
+
+
+        <div class="group">
+
+            <label class="label-wrapper" for="area">
+                Площадь, м²
+            </label>
+
+            <div class="label-over">
+                <div class="label-wrapper">
+                    <label for="area"> Общая </label>
+                </div>
+                
+                <div class="input-wrapper">
+                    <input requiredtype="number" formControlName="area" id="area">
+                </div>
+            </div>
+
+            <div class="label-over">
+                <div class="label-wrapper">
+                    <label for="area_l"> Жилая </label>
+                </div>
+                
+                <div class="input-wrapper">
+                    <input requiredtype="number" formControlName="area_l" id="area_l">
+                </div>
+            </div>
+        
+
+            <div class="label-over">
+                <div class="label-wrapper">
+                    <label for="area_k"> Кухня </label>
+                </div>
+                
+                <div class="input-wrapper">
+                    <input requiredtype="number" formControlName="area_k" id="area_k">
+                </div>
+            </div>
+
+        </div>
+        
+        
+        <hr>
+        
+        <h2>Расположение</h2>
+        
+        <div class="location">
+            <select formControlName="city" id="city" multiple="multiple">
+                <option value="Алматы">
+                    Алматы
+                </option>
+            </select>
+            
+            <select formControlName="districts" id="districts" multiple="multiple">
+                <option *ngFor="let d of districts" value="{{d.district}}" (click)="loadSubDists(d); this.district = d.district_name">
+                    {{d.district_name}}
+                </option>
+            </select>
+            
+            <select multiple="multiple" *ngIf="this.district" formControlName="subdistricts" id="subdistricts">
+                <option *ngFor="let sd of subdistricts" value="{{sd}}" (click)="this.subdistrict = sd">
+                    {{sd}}
+                </option>
+            </select>
+            
+        </div>
+
+        <div class="group">
+            <div class="label-over">
+                <div class="label-wrapper">
+                    <label for="street_subdist">
+                        Улица или микрорайон
+                    </label>
+                </div>
+                <div class="input-wrapper">
+                    <input requiredtype="text" formControlName="street_subdist" id="street_subdist" value="{{this.district}}, {{this.subdistrict}}">
+                </div>
+            </div>
+
+            <div class="label-over">
+                <div class="label-wrapper">
+                    <label for="number">
+                        № дома
+                    </label>
+                </div>
+                <div class="input-wrapper">
+                    <input requiredtype="text" formControlName="number" id="number">
+                </div>
+            </div>
+        </div>
+        
+
+        <hr>
+        <br>
+
+        <div class="group">       
+            <div class="label-wrapper">
+                <label for="description"> Текст объявления </label>
+            </div>
+            <div class="input-wrapper">
+                <textarea formControlName="description" id="description" maxlength="2000" cols="120" rows="10"></textarea>
+            </div>
+        </div>
+
+        <button type="submit" id="sub-button" hidden> Продолжить </button>
+
+    </form>
+
+    <h2> Фотографии </h2>
+    <p> Объявление с фотографиями получает в 5 раз больше просмотров </p>
+
+    <input required type="file" (change)="onImageSelected($event)" accept="image/*">
+    <button (click)="upload()">Upload Image</button>
+
+    <div class="images">
+        @for (image of imagesUrl; track image) {
+            <img  [src]="image" alt="Uploaded Image">
+        }
+    </div>
+
+
+    <div class="drag-drop-area" [class.uploading]="uploading" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+        <p>Перетащите фото сюда</p>
+    </div>
+
+
+    <br>
+    <br>
+    
+    <label for="sub-button" class="btn btn-primary a-new-btn submit-btn">Продолжить</label>
+</div>

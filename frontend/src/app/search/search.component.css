@@ -1,0 +1,98 @@
+button {
+    height: 26px;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    padding: 0 16px;
+    color: #fff;
+    background: #2a81dd;
+    border: solid 1px rgba(28,24,25,.1);
+    border-radius: 4px;
+}
+
+button:hover {
+    color: #fff;
+    background: #34a2e9;
+}
+
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    background: #fc6;
+    margin-top: 8px;
+    border-radius: 12px;
+    color: #000;
+    font-size: 12px;
+
+}
+
+.search-inputs {
+    display: flex;
+    flex-wrap: wrap;    
+}
+
+.selections {
+    display: flex;
+    align-items: center; 
+    margin-right: 10px; 
+}
+
+.selections select {
+    height: 26px;
+    background-color: #fff;
+    padding-right: 24px;
+    margin-right: 5px; 
+    border: 1px solid #abadb3;
+    border-radius: 0;
+}
+
+.selections a {
+    display: inline-block; 
+    margin-right: 5px; 
+    color: inherit; 
+    text-decoration: none; 
+}
+
+.selections a:hover {
+    text-decoration: underline;
+}
+
+.selections a .caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid \9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.input-range {
+    display: flex;
+    align-items: center; 
+}
+
+.input-range input[type="text"] {
+    margin-right: 5px; 
+}
+
+.input-range input[type="text"]::placeholder {
+    color: #000000; 
+}
+
+.input-range input[type="text"],
+.input-range input[type="text"]:focus {
+    background-color: #fff;
+    border: 1px solid #ccc; 
+    padding: 5px; 
+    width: 50px; 
+}
+
+.checkboxes {
+    margin: 8px 0px;
+    padding-top: 4px;
+}

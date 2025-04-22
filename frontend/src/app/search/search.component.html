@@ -1,0 +1,45 @@
+<section class="search-container">
+    <form>
+        <div class="search-inputs">
+            <div class="selections">
+                <select [(ngModel)]="selectedAction" [ngModelOptions]="{standalone: true}">
+                    <option>Купить</option>
+                    <option>Арендовать</option>
+                </select>
+                <select [(ngModel)]="selectedType" [ngModelOptions]="{standalone: true}">
+                    <option>Квартиру</option>
+                    <option>Дом</option>
+                </select>
+                <a>
+                    <span>Алматы</span>
+                    <span class="caret"></span>
+                </a>
+                <!-- <select>
+                    <option>Любой комнатности</option>
+                    <option>1-комн.</option>
+                    <option>2-комн.</option>
+                    <option>3-комн.</option>
+                    <option>4-комн.</option>
+                    <option>5-комн.</option>
+                    <option>6 и более комн.</option>
+                </select> -->
+                <div class="input-range">
+                    <input type="text" size="6" placeholder="От" [(ngModel)]="minValue" [ngModelOptions]="{standalone: true}">
+                    - 
+                    <input type="text" size="6" placeholder="До" [(ngModel)]="maxValue" [ngModelOptions]="{standalone: true}">
+                    тг
+                </div>
+            </div>
+
+        </div>                
+        <div class="checkboxes">
+            <div>
+                <input type="checkbox" [(ngModel)]="hasPhoto" [ngModelOptions]="{standalone: true}">
+                <span>Есть фото</span>
+            </div>
+        </div>
+    </form>
+    <div>
+        <button (click)="onSearch()">Найти</button>
+    </div>
+</section>

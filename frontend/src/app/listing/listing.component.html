@@ -1,0 +1,39 @@
+<div class="listing-container">
+    <app-search></app-search>
+    <div *ngIf="loaded" class="property-block">
+        <div *ngFor="let listing of listings" class="property-item">
+            <a [routerLink]="['/', listing.type, listing.property.type, listing.id]">
+                <div class="property-details">
+                    <img [src]="listing.property.images[0].url">
+                    <div class="property-info">
+                        <h3>{{ listing.property.rooms_count }} - комнатный {{ listing.property.type }}, {{ listing.property.area }} м<sup>2</sup> за {{ listing.property.price }} ₸.</h3>
+                        <p>Цена: {{ listing.property.price }} тг</p>
+                    </div>
+                </div>
+                
+            </a>
+            <!-- <button (click)="selectedListingId = listing.id; update=true">  
+                <img id="edit" src="../../assets/image/Untitled.png" alt="EDIT">
+            </button>
+            <div class="update" *ngIf="selectedListingId === listing.id && update">
+                <form>
+                    <label>Price:</label>
+                    <input type="text" [(ngModel)]="newPrice" name="price">
+                    <br>
+                    <label>Description:</label>
+                    <textarea [(ngModel)]="newDescription" name="description"></textarea>
+                    <br>
+                    <button (click)="onUpdate(listing.id, listing)">Update</button>
+                </form>
+            </div>  
+            <button (click)="onDelete(listing.id)">  
+                <img id="edit" src="../../assets/image/delete_icon.jpeg" alt="DELETE">
+            </button> -->
+        </div>
+    </div>  
+    <div *ngIf="!loaded" class="loading-message">
+        Loading...
+    </div>
+</div>
+
+ 

@@ -1,0 +1,97 @@
+<div class="main-container">
+    <app-search></app-search>
+    <section class="hot-container" *ngIf="this.loaded"> 
+        <div class="hot-header">
+            <h1>Цены на недвижимость в Казахстане: горячие предложения</h1>
+        </div>
+        <div class="hot-body" *ngIf="this.type !=='sale' && this.type !== 'rent'">
+            <div class="hot-sale">
+                <div class="hot-title">
+                    <h2>Продажа</h2>
+                </div>
+                <div class="hot-list hot-sale-list">
+                    <div class="grid-container">
+                        <ng-container *ngFor="let listing of listings">
+                            <a [routerLink]="['/', listing.type, listing.property.type, listing.id]" *ngIf="listing.type === 'sale'">
+                                <div class="grid-item">
+                                    <img [src]="listing.property.images[0].url">
+                                    <h3>{{ listing.property.rooms_count }} - комнатный {{ listing.property.type }}, {{ listing.property.area }} м<sup>2</sup> за {{ listing.property.price }} ₸.</h3>
+                                </div>
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div class="hot-rent">
+                <div class="hot-title">
+                    <h2>Аренда</h2>
+                </div>
+                <div class="hot-list hot-rent-list">
+                    <div class="grid-container">
+                        <ng-container *ngFor="let listing of listings">
+                            <a [routerLink]="['/', listing.type, listing.property.type, listing.id]" *ngIf="listing.type === 'rent'">
+                                <div class="grid-item">
+                                    <img [src]="listing.property.images[0].url">
+                                    <h3>{{ listing.property.rooms_count }} - комнатный {{ listing.property.type }}, {{ listing.property.area }} м<sup>2</sup> за {{ listing.property.price }} ₸.</h3>
+                                </div>
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hot-body" *ngIf="this.type === 'rent' || this.type === 'sale'">
+            <div class="hot-sale">
+                <div class="hot-title">
+                    <h2>Дома</h2>
+                </div>
+                <div class="hot-list hot-sale-list">
+                    <div class="grid-container">
+                        <ng-container *ngFor="let listing of listings">
+                            <a [routerLink]="['/', listing.type, listing.property.type, listing.id]" *ngIf="listing.type === type && listing.property.type === 'house'">
+                                <div class="grid-item">
+                                    <img [src]="listing.property.images[0].url">
+                                    <h3>{{ listing.property.rooms_count }} - комнатный {{ listing.property.type }}, {{ listing.property.area }} м<sup>2</sup> за {{ listing.property.price }} ₸.</h3>
+                                </div>
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div class="hot-rent">
+                <div class="hot-title">
+                    <h2>Квартиры</h2>
+                </div>
+                <div class="hot-list hot-rent-list">
+                    <div class="grid-container">
+                        <ng-container *ngFor="let listing of listings">
+                            <a [routerLink]="['/', listing.type, listing.property.type, listing.id]" *ngIf="listing.type === type && listing.property.type === 'apartment'">
+                                <div class="grid-item">
+                                    <img [src]="listing.property.images[0].url">
+                                    <h3>{{ listing.property.rooms_count }} - комнатный {{ listing.property.type }}, {{ listing.property.area }} м<sup>2</sup> за {{ listing.property.price }} ₸.</h3>
+                                </div>
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="meta-data">
+        <h2 style="color: black;">
+            Купля-продажа недвижимости в Казахстане: рынок как на ладони</h2>
+        <p>
+            Операции купли-продажи недвижимости в Казахстане в последнее время становятся всё более актуальными. Спрос на квартиры и дома продолжает расти, что оказывает прямое влияние на цены. Особенно часто осуществляются подобные сделки в крупных городах страны, в частности в северной и южной столицах – Астане и Алматы.</p>
+        <p>
+            На нашем сайте вы можете легко найти необходимую информацию не только о столичном жилье и коммерческой недвижимости, но и подобрать подходящий объект в любом регионе.</p>
+        <p>
+            Интернет-ресурс shanyraq.kz – крупнейшая база объявлений, в которых всегда указаны реальные цены на недвижимость. Каждому посетителю предоставляется возможность правильно оценить ситуацию, получая информацию, так сказать, из первых рук. Подайте объявление о своей потребности купить или продать, изучите предложение по существующим и постоянно пополняющимся объявлениям базы – и вы всегда сможете принять правильное решение.</p>
+        <p>
+            На нашем сайте размещается информация о продаже недвижимости на первичном и вторичном рынке. Если вас интересуют новостройки, обратите внимание на предложения девелоперских организаций, которые предлагают отличные варианты квартир в новых домах, построенных согласно международным стандартам.</p>
+        <p>
+            Чтобы оптимизировать работу с нашим сайтом и сделать её более эффективной, воспользуйтесь удобной формой поиска. У Вас, конечно, уже сформировались определённые требования к объекту недвижимости, который нужно найти. Если вы ищете квартиру или дом, задайте в поиске количество комнат, регион, город, район, стоимость, на которую рассчитываете, и другую важную для вас информацию – и наша поисковая машина, как электронный брокер, сразу же предоставит все возможные варианты по Вашему запросу. Таким же образом можно подобрать себе дачу с участком или коммерческую недвижимость.</p>
+        <p>
+            Вы можете покупать-продавать самостоятельно или с помощью риелторской компании – в любом случае интернет-ресурс http://shanyraq.kz будет вашим надёжным помощником. Мы работаем, чтобы ваша покупка/продажа недвижимости всегда была успешной!</p>
+    </section>       
+
+</div>

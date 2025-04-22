@@ -1,0 +1,85 @@
+<div class="main">
+        <h2>Подать объявление</h2>
+        <p id="sel-cat">Выберите категорию</p>
+    
+        <div class="hint-box">
+            <p>Поля со звездочкой * — обязательные</p>
+            <p>Срок жизни объявления на сайте — 7 дней. Продлить можно в личном кабинете</p>
+        </div>
+
+    
+    <div class="categories" *ngIf="!categorySelected">
+        <div class="ad">
+            <button (click)="SelectCategory('sell')">Продать</button>
+        </div>
+        <div class="ad">
+            <button (click)="SelectCategory('rent')">Сдать в аренду</button>
+        </div>
+    </div>
+    
+    <div class="sub-categories categories" *ngIf="currentCategory && !categorySelected">
+        <ul>
+            
+            <li *ngFor="let t of target"  class="ad">
+                <button (click)="loadFields(t); this.currentSubcategory=t">
+                    {{t.displayed_name}}
+                </button>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div *ngIf="!categorySelected">
+        <br> <br> <br> <br> <br> <br> <br>
+    </div>
+    
+
+    <div *ngIf="this.selectedToLoad == 'sell.flat'">
+
+        <app-sell-flat-form
+            [userID]="userID"
+            [currentCategory]="currentCategory"
+            [selectedSubcategory]="currentSubcategory"
+        ></app-sell-flat-form>
+        
+    </div>
+
+    
+    <div *ngIf="this.selectedToLoad == 'sell.house_dacha'">
+
+        <app-sell-house-form
+            [userID]="userID" 
+            [currentCategory]="currentCategory"
+            [selectedSubcategory]="currentSubcategory"
+        ></app-sell-house-form>
+        
+    </div>
+        
+
+    <div *ngIf="this.selectedToLoad == 'rent.flat'">
+
+        <app-rent-flat-form
+            [userID]="userID" 
+            [currentCategory]="currentCategory"
+            [selectedSubcategory]="currentSubcategory"
+        ></app-rent-flat-form>
+        
+    </div>
+
+
+    <div *ngIf="this.selectedToLoad == 'rent.house'">
+
+        <app-rent-house-form
+            [userID]="userID" 
+            [currentCategory]="currentCategory"
+            [selectedSubcategory]="currentSubcategory"
+        ></app-rent-house-form>
+        
+    </div>
+            
+        
+</div>
+
+

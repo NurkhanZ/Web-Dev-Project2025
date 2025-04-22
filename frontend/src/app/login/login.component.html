@@ -1,0 +1,21 @@
+<div class="login-container">
+    <ng-container *ngIf="!logged" class="login-container">
+        <fieldset *ngIf="this.type === 'register'">
+            <label for="username">Имя пользователья:</label>
+            <input type="text" id="username" [(ngModel)]="username" required>
+        </fieldset>
+        <fieldset>
+            <label for="contact_info">Номер телефона:</label>
+            <input type="text" id="password" [(ngModel)]="contact_info" required>
+        </fieldset>
+        <fieldset>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" [(ngModel)]="password" required>
+        </fieldset>
+        <button (click)="login()" *ngIf="this.type === 'login'">Войти</button>
+        <button (click)="register()" *ngIf="this.type === 'register'">Регистрация</button>
+    </ng-container>
+    <ng-container *ngIf="logged" class="login-container">
+        <button (click)="logout()">Выйти</button>
+    </ng-container>
+</div>
