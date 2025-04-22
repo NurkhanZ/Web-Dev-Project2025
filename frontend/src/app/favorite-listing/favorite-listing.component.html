@@ -1,0 +1,24 @@
+<div class="listing-container">
+    <div *ngIf="this.loaded" class="property-block">
+        <div *ngFor="let listing of listings" class="property-item">
+            <a [routerLink]="['/', listing.type, listing.property.type, listing.property.id]">
+                <div class="property-details">
+                    <img [src]="listing.property.images[0].url">
+                    <div class="property-info">
+                        <h3>{{ listing.property.title }}</h3>
+                        <p>Цена: {{ listing.property.price }} тг</p>
+                    </div>
+                </div>
+                
+            </a>
+            <button (click)="onDelete(listing.id)">  
+                <img id="edit" src="../../assets/image/delete_icon.jpeg" alt="DELETE">
+            </button>
+        </div>
+    </div>  
+    <div *ngIf="!loaded" class="loading-message">
+        Loading...
+    </div>
+</div>
+
+ 

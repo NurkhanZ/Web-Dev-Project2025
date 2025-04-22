@@ -1,0 +1,89 @@
+<div class="container page-wrapper">
+    <main *ngIf="isLoaded" class="container">
+            
+        <div class="page-top">
+
+            <div *ngIf="this.ads.length === 0" class="my-index-header">  
+            <h1>
+                    У вас пока нет объявлений на сайте
+                </h1>
+            </div>
+            
+            <div *ngIf="this.ads.length != 0" class="my-index-header">  
+                <h1>
+                    Ваши объявления
+                </h1>
+            </div>
+    
+
+            <div class="filler"></div>
+            
+            <div class="new-ad-btn">
+                <a href="/ad/new" class="btn btn-primary a-new-btn"> Подать объявление </a>
+            </div>
+            
+        </div>
+             
+        <div *ngIf="this.ads.length === 0" class="content">
+            <p>
+                Это легко исправить, <a href="/ad/new">подав их</a>.
+            </p>
+        </div>
+        
+        <div *ngIf="this.ads.length != 0" class="">
+            <br>
+            <br>
+            
+            <div *ngFor="let l of listing">
+                
+                <div class="ad-list">
+                    
+
+                    
+                    <a [routerLink]="['/' ,l.type, l.property.type, l.id]" class="ad-listing-link">
+                        <img src="{{ l.property.images[0].url }}" class="side-img">
+                        <div class="details">
+                            <div class="general">
+                                {{ l.property.rooms_count }} - комнатный {{ l.property.type }}, {{ l.property.area }} м<sup>2</sup> за {{ l.property.price }} ₸.
+                            </div>
+                            
+                            <div class="additional">
+                                {{ l.property.city }}, {{ l.property.address }} <br>
+                                <!-- Добавлено {{ ad. }} -->
+                            </div>
+                        </div>
+
+                        
+                    </a>
+
+                    <button (click)="selectedListingId = l.id; update=true">  
+                        <img id="edit" src="../../assets/image/Untitled.png" alt="EDIT">
+                    </button>
+                    <div class="update" *ngIf="selectedListingId === l.id && update">
+                        <form>
+                            <label>Price:</label>
+                            <input type="text" [(ngModel)]="newPrice" name="price">
+                            <br>
+                            <label>Description:</label>
+                            <textarea [(ngModel)]="newDescription" name="description"></textarea>
+                            <br>
+                            <button (click)="onUpdate(l.id, l)">Update</button>
+                        </form>
+                    </div>  
+                    <button (click)="onDelete(l.id)">  
+                        <img id="edit" src="../../assets/image/delete_icon.jpeg" alt="DELETE">
+                    </button>
+
+                    </div>
+                    
+            </div>
+                
+        </div>
+
+    </main>
+
+    <div *ngIf="!isLoaded">
+        loading
+    </div>
+</div>
+    

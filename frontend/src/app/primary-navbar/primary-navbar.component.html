@@ -1,0 +1,21 @@
+<header>
+    <div class="secondary-navbar">
+        <a [routerLink]="['/']">
+            <img src="/assets/image/logo-no-background.png" alt="Logo" width="200px">
+        </a>
+        <ul class="nav-menu">
+            <li><a [routerLink]="['/sale']">Продажа</a></li>
+            <li><a [routerLink]="['/rent']">Аренда</a></li>
+            <li><a>Подать объявление</a></li>
+        </ul>
+        
+    </div>
+    <div class="primary-navbar">
+        <ul class="nav-menu">
+            <li><a [routerLink]="['/favorites']">Избранное</a></li>
+            <li><a [routerLink]="['/user/register']">Регистрация</a></li>
+            <li><a [routerLink]="['/user/login']">Войти</a></li>
+            <li><a [routerLink]="['my']">Личный кабинет</a></li>
+        </ul>
+    </div>
+</header>

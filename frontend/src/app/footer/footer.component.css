@@ -1,0 +1,43 @@
+footer {
+    width: 1260px;
+    min-height: 160px;
+    margin: 30px auto 0 !important;
+    padding: 25px 5px !important;
+    border-top: 1px solid #ccc;
+    font-size: 13px;
+    font-family: 'Helvetica';
+    display: block;
+    box-sizing: border-box;
+    line-height: 1.42857;
+}
+
+a {
+    color: #2a81dd;
+    display: block;
+    margin-left: 15px;
+    padding: 15px 0 0;
+    font-size: 13px;
+    text-decoration: none;
+    box-sizing: border-box;
+    line-height: 1.42857;
+}
+
+a:hover {
+    color: #f33;
+  }
+
+.footer-row {
+    margin-left: -10px;
+    box-sizing: border-box;
+    line-height: 1.42857;
+}
+
+.footer-column {
+    width: 16.66667%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    
+}
