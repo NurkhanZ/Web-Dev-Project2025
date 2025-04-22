@@ -9,7 +9,7 @@
     <div class="title">
       <h3>{{ flatSale.property.rooms_count }} - комнатный {{ flatSale.property.type }}, {{ flatSale.property.area }} м<sup>2</sup> за {{ flatSale.property.price }} ₸.</h3>
       <div class="favorite">
-         <button (click)="addFavorite()" type="button">В избранном</button>
+         <button (click)="addFavorite()" type="button">В избранное</button>
       </div>
     </div>
   </div>
@@ -24,11 +24,11 @@
           <div class="button_border"></div>
           <h5>{{flatSale.property.city}}</h5>
         </div>
-        <!-- <div class="common">
+        <div class="common">
           <h4>Тип дома</h4>
           <div class="button_border"></div>
-          <h5>{{flatSale.type_building}}</h5>
-        </div> -->
+          <h5>{{parametersMap.get('building_type')}}</h5>
+        </div>
         <div class="common">
           <h4>Площадь, (м<sup>2</sup>)</h4>
           <div class="button_border"></div>
@@ -39,11 +39,11 @@
           <div class="button_border"></div>
           <h5>{{flatSale.property.address  }}</h5>
         </div>
-        <!-- <div class="common">
+        <div class="common">
           <h4>Номер квартиры (этаж)</h4>
           <div class="button_border"></div>
-          <h5>{{flatSale.number_flat}} ({{flatSale.floor}})</h5>
-        </div> -->
+          <h5>{{parametersMap.get('flat_floor') }} ({{parametersMap.get('flat_floor_total')}})</h5>
+        </div>
       </div>
 
       <div class="contact">
@@ -51,7 +51,7 @@
         <div class="info">
           <h5> Имя: {{this.userName}}<span></span></h5>
           <h5> Номер телефона: {{this.userContact}}<span></span></h5>
-          <button class="call" type="button"> Звонить </button>
+          <!-- <button class="call" type="button"> Звонить </button> -->
         </div>
       </div>
     </div>
@@ -70,7 +70,34 @@
 
     <!--Description-->
     <div class="offer_description">
-      <div class="about"> Подробнее о доме </div>
+      <!-- <div class="about"> Подробнее о доме </div> -->
+        <!-- <div class="offer_parameters">
+          <dl>
+            <dt>Покрытие крыши</dt>
+            <dd>Металлочерепица</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+          <dl>
+            <dt>Есть цокольный этаж</dt>
+            <dd>Нет</dd>
+          </dl>
+        </div> -->
+        <!-- <div class="about"> Коммуникации </div>
         <div class="offer_parameters">
           <dl>
             <dt>Покрытие крыши</dt>
@@ -96,34 +123,7 @@
             <dt>Есть цокольный этаж</dt>
             <dd>Нет</dd>
           </dl>
-        </div>
-        <div class="about"> Коммуникации </div>
-        <div class="offer_parameters">
-          <dl>
-            <dt>Покрытие крыши</dt>
-            <dd>Металлочерепица</dd>
-          </dl>
-          <dl>
-            <dt>Есть цокольный этаж</dt>
-            <dd>Нет</dd>
-          </dl>
-          <dl>
-            <dt>Есть цокольный этаж</dt>
-            <dd>Нет</dd>
-          </dl>
-          <dl>
-            <dt>Есть цокольный этаж</dt>
-            <dd>Нет</dd>
-          </dl>
-          <dl>
-            <dt>Есть цокольный этаж</dt>
-            <dd>Нет</dd>
-          </dl>
-          <dl>
-            <dt>Есть цокольный этаж</dt>
-            <dd>Нет</dd>
-          </dl>
-        </div>
+        </div> -->
 
         <div class="about"> Описание </div>
         <div class="detail">{{flatSale.property.description}}</div>

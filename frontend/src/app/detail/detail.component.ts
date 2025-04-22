@@ -24,6 +24,7 @@ export class DetailComponent implements OnInit{
   userName: string = "";
   userContact: string = "";
   loaded: boolean = false;
+  parametersMap: any;
   private helper = new JwtHelperService();
 
   constructor(
@@ -43,6 +44,10 @@ export class DetailComponent implements OnInit{
         this.loaded = false;
         this.listingService.getListing(listingId).subscribe((listing: any) => {
           this.flatSale = listing;
+
+          this.parametersMap = new Map(Object.entries(this.flatSale.property.parameters));
+
+          // console.log(parametersMap.get('flat_floor'))
 
           this.userService.getUser(listing.user).subscribe((user: any) => {
             this.userName = user.username,

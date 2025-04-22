@@ -16,29 +16,35 @@
         
         <div class="group">
             <div class="label-wrapper">
-                <label for="rooms_count">Количество комнат</label>
+                <label for="rooms_count">Количество комнат*</label>
             </div>
             
             <div class="input-wrapper">
                 <input required type="number" id="rooms_count" formControlName="rooms_count">
             </div>
+            <div *ngIf="applyForm.get('rooms_count')?.invalid && applyForm.get('rooms_count')?.touched">
+                <small class="error">Нужно указать это поле.</small>
+            </div>
         </div>        
         
         <div class="group">
             <div class="label-wrapper">
-                <label for="price">Цена</label>
+                <label for="price">Цена*</label>
             </div>
             
             <div class="input-wrapper">
                 <input required type="number" id="price" formControlName="price" placeholder="Например, 12 000 000 〒">
                 <span> тенге </span>
             </div>
+            <div *ngIf="applyForm.get('price')?.invalid && applyForm.get('price')?.touched">
+                <small class="error">Нужно указать это поле.</small>
+            </div>
         </div>        
         
         
         <div class="group">
             <div class="label-wrapper">
-                <label for="building_type">Тип строения</label>
+                <label for="building_type">Тип строения*</label>
             </div>
             
             <div class="input-wrapper">
@@ -49,24 +55,33 @@
                     <option value="монолитный"> монолитный </option>
                     <option value="иное"> иное </option>
                 </select>
-            </div> 
+            </div>
+            <div *ngIf="applyForm.get('building_type')?.invalid && applyForm.get('building_type')?.touched">
+                <small class="error">Нужно указать это поле.</small>
+            </div>
         </div>
         
         <div class="group">
             <div class="label-wrapper">
-                <label for="flat_floor"> Этаж </label>
+                <label for="flat_floor"> Этаж* </label>
             </div>
             <div class="input-wrapper">
                 <input required type="number" formControlName="flat_floor" id="flat_floor">
                 <span> из </span>
                 <input required type="number" formControlName="flat_floor_total" id="flat_floor_total">
             </div>
+            <div *ngIf="applyForm.get('flat_floor')?.invalid && applyForm.get('flat_floor')?.touched">
+                <small class="error">Нужно указать это поле.</small>
+            </div>
+            <div *ngIf="applyForm.get('flat_floor_total')?.invalid && applyForm.get('flat_floor_total')?.touched">
+                <small class="error">Нужно указать это поле.</small>
+            </div>
         </div>
 
         <div class="group">
 
             <label class="label-wrapper">
-                Площадь, м²
+                Площадь, м²*
             </label>
 
             <div class="label-over">
@@ -77,7 +92,7 @@
                 <div class="input-wrapper">
                     <input required type="number" formControlName="area" id="area">
                 </div>
-
+                
             </div>
 
             <div class="label-over">
@@ -88,7 +103,9 @@
                 <div class="input-wrapper">
                     <input required type="number" formControlName="area_k" id="area_k">
                 </div>
-            
+                <div *ngIf="applyForm.get('area_k')?.invalid && applyForm.get('area_k')?.touched">
+                    <small class="error">Нужно указать это поле.</small>
+                </div>
             </div>
         
         </div>
@@ -104,18 +121,24 @@
                     Алматы
                 </option>
             </select>
-            
+
+
+
             <select formControlName="districts" id="districts" multiple="multiple">
                 <option *ngFor="let d of districts" value="{{d.district}}" (click)="loadSubDists(d); this.district = d.district_name">
                     {{d.district_name}}
                 </option>
             </select>
+
+
             
             <select multiple="multiple" *ngIf="this.district" formControlName="subdistricts" id="subdistricts">
                 <option *ngFor="let sd of subdistricts" value="{{sd}}" (click)="this.subdistrict = sd">
                     {{sd}}
                 </option>
             </select>
+
+
             
         </div>
 
@@ -123,33 +146,42 @@
             <div class="label-over">
                 <div class="label-wrapper">
                     <label for="street_subdist">
-                        Улица или микрорайон
+                        Улица или микрорайон*
                     </label>
                 </div>
                 <div class="input-wrapper">
                     <input required type="text" formControlName="street_subdist" id="street_subdist" value="{{this.district}}, {{this.subdistrict}}">
+                </div>
+                <div *ngIf="applyForm.get('street_subdist')?.invalid && applyForm.get('street_subdist')?.touched">
+                    <small class="error">Нужно указать это поле.</small>
                 </div>
             </div>
 
             <div class="label-over">
                 <div class="label-wrapper">
                     <label for="number">
-                        № дома
+                        № дома*
                     </label>
                 </div>
                 <div class="input-wrapper">
                     <input required type="text" formControlName="number" id="number">
+                </div>
+                <div *ngIf="applyForm.get('number')?.invalid && applyForm.get('number')?.touched">
+                    <small class="error">Нужно указать это поле.</small>
                 </div>
             </div>
         </div>
         
         <div class="group">       
           <div class="label-wrapper">
-              <label for="description"> Текст объявления </label>
+              <label for="description"> Текст объявления* </label>
           </div>
           <div class="input-wrapper">
               <textarea formControlName="description" id="description" maxlength="2000" cols="120" rows="10"></textarea>
           </div>
+          <div *ngIf="applyForm.get('description')?.invalid && applyForm.get('description')?.touched">
+            <small class="error">Нужно указать это поле.</small>
+        </div>
       </div>
 
 

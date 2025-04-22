@@ -4,7 +4,7 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Districts, DistrictInterface } from './districts';
 import { SubCategories } from '../new-ad/ad-sub-categories';
 import { AppComponent } from '../app.component';
-import { ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ImageUploaderService, BackendURL } from '../services/image-uploader.service';
 import { FormService } from '../services/form.service';
@@ -38,22 +38,22 @@ export class SellFlatFormComponent {
   constructor(private listingService: ListingService) { }
 
   applyForm = new FormGroup({
-    type: new FormControl('apartment'),
-    price: new FormControl(0),
-    area: new FormControl(0),
-    rooms_count: new FormControl(0),
-    city: new FormControl('Almaty'),
-    street_subdist: new FormControl(''),
-    number: new FormControl(''),
-    description: new FormControl(''),
+    type: new FormControl('apartment', Validators.required),
+    price: new FormControl(0, Validators.required),
+    area: new FormControl(0, Validators.required),
+    rooms_count: new FormControl(0, Validators.required),
+    city: new FormControl('Almaty', Validators.required),
+    street_subdist: new FormControl('', Validators.required),
+    number: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
     
-    districts: new FormControl(''),
-    subdistricts: new FormControl(''),
+    districts: new FormControl('', Validators.required),
+    subdistricts: new FormControl('', Validators.required),
     
-    building_type: new FormControl(''),
-    flat_floor: new FormControl(''),
-    flat_floor_total: new FormControl(''),
-    area_k: new FormControl(''),  
+    building_type: new FormControl('', Validators.required),
+    flat_floor: new FormControl('', Validators.required),
+    flat_floor_total: new FormControl('', Validators.required),
+    area_k: new FormControl('', Validators.required),  
   });
  
 
