@@ -2,16 +2,20 @@
     <app-search></app-search>
     <div *ngIf="loaded" class="property-block">
         <div *ngFor="let listing of listings" class="property-item">
-            <a [routerLink]="['/', listing.type, listing.property.type, listing.id]">
-                <div class="property-details">
-                    <img [src]="listing.property.images[0].url">
-                    <div class="property-info">
-                        <h3>{{ listing.property.rooms_count }} - комнатный {{ listing.property.type }}, {{ listing.property.area }} м<sup>2</sup> за {{ listing.property.price }} ₸.</h3>
-                        <p>Цена: {{ listing.property.price }} тг</p>
-                    </div>
+            <div *ngIf="listingType === listing.type && propertyType === listing.property.type">
+                <div *ngIf="listing.property.price >= criteria.minValue && listing.property.price <= criteria.maxValue">
+                    <a [routerLink]="['/', listing.type, listing.property.type, listing.id]">
+                        <div class="property-details">
+                            <img [src]="listing.property.images[0].url">
+                            <div class="property-info">
+                                <h3>{{ listing.property.rooms_count }} - комнатный {{ listing.property.type }}, {{ listing.property.area }} м<sup>2</sup> за {{ listing.property.price }} ₸.</h3>
+                                <p>Цена: {{ listing.property.price }} тг</p>
+                            </div>
+                        </div>
+                        
+                    </a>
                 </div>
-                
-            </a>
+            </div>
             <!-- <button (click)="selectedListingId = listing.id; update=true">  
                 <img id="edit" src="../../assets/image/Untitled.png" alt="EDIT">
             </button>
