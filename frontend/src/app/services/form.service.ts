@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -7,7 +8,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class FormService {
 
-  constructor() { }
+  constructor(private router: Router) { 
+    // this.checkAuthorization();
+  }
 
   // this.formService.submitForm(
   //   this.applyForm.value.type ?? '',
@@ -25,7 +28,22 @@ export class FormService {
   private helper = new JwtHelperService();
   access = localStorage.getItem("access") ?? '';
   accessToken = this.helper.decodeToken(this.access);
-  userID = this.accessToken.user_id;
+  userID: any;
+
+  checkAuthorization():void{
+    if(this.access){
+      this.accessToken = this.helper.decodeToken(this.access);
+      if(this.accessToken && this.accessToken.user_id){
+        this.userID = this.accessToken.user_id;
+
+      } else {
+        alert("Authorize first");
+      }
+    } else {
+      alert("No access token found. Please log in");
+      this.router.navigate(['']);
+    }
+  }
 
   compileAddress(
     street_subdist: string,

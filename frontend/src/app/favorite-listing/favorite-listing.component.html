@@ -1,7 +1,7 @@
 <div class="listing-container">
     <div *ngIf="this.loaded" class="property-block">
         <div *ngFor="let listing of listings" class="property-item">
-            <a [routerLink]="['/', listing.type, listing.property.type, listing.property.id]">
+            <a [routerLink]="['/', listing.type, listing.property.type, listing.id]">
                 <div class="property-details">
                     <img [src]="listing.property.images[0].url">
                     <div class="property-info">

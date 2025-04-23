@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Favorites, Listing, Property } from '../models';
 import { ListingService } from '../listing.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { FormService } from '../services/form.service';
 
 @Component({
   selector: 'app-favorite-listing',
@@ -27,9 +28,9 @@ export class FavoriteListingComponent  implements OnInit{
 
   constructor(private route: ActivatedRoute,
     private listingService: ListingService,
-
+    private formService: FormService,
   ){
-
+    this.formService.checkAuthorization();
   }
 
   ngOnInit(): void {

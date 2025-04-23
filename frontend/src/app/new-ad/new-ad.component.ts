@@ -26,6 +26,8 @@ export class NewAdComponent {
 
   target!: SubCategories[] 
 
+  constructor() { this.formService.checkAuthorization()}
+
   SelectCategory(category: string) {
     if (category == "sell") {
       this.currentCategory = "sell";

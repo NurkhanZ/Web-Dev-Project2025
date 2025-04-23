@@ -6,6 +6,7 @@ import { UserService } from '../user.service';
 import { Listing } from '../models';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {NgForOf} from "@angular/common";
+import { FormService } from '../services/form.service';
 
 @Component({
   selector: 'app-detail',
@@ -30,13 +31,14 @@ export class DetailComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private listingService: ListingService,
-    private userService: UserService) {
-
+    private userService: UserService,
+    private formService: FormService,) {
   }
 
   ngOnInit() {
     const access = localStorage.getItem("access") ?? '';
     const accessToken = this.helper.decodeToken(access);
+    this.formService.checkAuthorization()
     this.userId = accessToken.user_id;
     this.route.paramMap.subscribe((params: any) => {
       if(params.get('id')) {
@@ -47,7 +49,7 @@ export class DetailComponent implements OnInit{
 
           this.parametersMap = new Map(Object.entries(this.flatSale.property.parameters));
 
-          // console.log(parametersMap.get('flat_floor'))
+          // console.log(this.flatSale.property)
 
           this.userService.getUser(listing.user).subscribe((user: any) => {
             this.userName = user.username,
