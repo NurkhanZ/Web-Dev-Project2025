@@ -31,29 +31,26 @@ export class SellFlatFormComponent {
   districts: DistrictInterface[] = Districts;
   subdistricts: string[] = [];
 
-
-
-
   formService: FormService = inject(FormService);
   constructor(private listingService: ListingService) { }
 
   applyForm = new FormGroup({
-    type: new FormControl('apartment', Validators.required),
-    price: new FormControl(0, Validators.required),
-    area: new FormControl(0, Validators.required),
-    rooms_count: new FormControl(0, Validators.required),
-    city: new FormControl('Almaty', Validators.required),
-    street_subdist: new FormControl('', Validators.required),
-    number: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
+    type: new FormControl('apartment'),
+    price: new FormControl(0),
+    area: new FormControl(0),
+    rooms_count: new FormControl(0),
+    city: new FormControl('Almaty'),
+    street_subdist: new FormControl(''),
+    number: new FormControl(''),
+    description: new FormControl(''),
     
-    districts: new FormControl('', Validators.required),
-    subdistricts: new FormControl('', Validators.required),
+    districts: new FormControl(''),
+    subdistricts: new FormControl(''),
     
-    building_type: new FormControl('', Validators.required),
-    flat_floor: new FormControl('', Validators.required),
-    flat_floor_total: new FormControl('', Validators.required),
-    area_k: new FormControl('', Validators.required),  
+    building_type: new FormControl(''),
+    flat_floor: new FormControl(''),
+    flat_floor_total: new FormControl(''),
+    area_k: new FormControl(''),  
   });
  
 

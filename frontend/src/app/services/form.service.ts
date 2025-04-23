@@ -8,8 +8,12 @@ import { Router } from '@angular/router';
 })
 export class FormService {
 
+  // constructor() { 
+
+  // }
+
   constructor(private router: Router) { 
-    // this.checkAuthorization();
+    this.checkAuthorization();
   }
 
   // this.formService.submitForm(

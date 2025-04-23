@@ -30,7 +30,9 @@ export class MyAdsComponent implements OnInit {
     private propertyService: PropertyService,
     private formService: FormService,
     private listingService: ListingService
-  ) { formService.checkAuthorization()}
+  ) { 
+    // formService.checkAuthorization()
+  }
 
   ngOnInit(): void {
     this.propertyService.getListing().subscribe((myListing: Listing[]) => {
